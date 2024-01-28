@@ -10,6 +10,7 @@ import json
 
 with open("config.json", "r") as fd:
 	data = json.load(fd)
+	name = data["name"]
 	own_input = data["own_input"]
 	point = data["point"]
 
@@ -32,7 +33,7 @@ def plot_triangle(vertices, x, y):
 
 def exec_coordonnees(point, x, y):
 	# Construire la commande à exécuter
-	commande = f"./bsp {point[0][0]} {point[0][1]} {point[1][0]} {point[1][1]} {point[2][0]} {point[2][1]} {x} {y}"
+	commande = f"./{name} {point[0][0]} {point[0][1]} {point[1][0]} {point[1][1]} {point[2][0]} {point[2][1]} {x} {y}"
 	print("Do 'make' and run :")
 	print(commande)
 	subprocess.run(commande, shell=True)
