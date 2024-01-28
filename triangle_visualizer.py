@@ -1,11 +1,11 @@
+
+import numpy as np
+import subprocess
 try:
 	import matplotlib.pyplot as plt
 except:
 	subprocess.run("pip install matplotlib", shell=True)
 	import matplotlib.pyplot as plt
-
-import numpy as np
-import subprocess
 import json
 
 with open("config.json", "r") as fd:
@@ -36,7 +36,6 @@ def exec_coordonnees(point, x, y):
 	print("Do 'make' and run :")
 	print(commande)
 	subprocess.run(commande, shell=True)
-
 	# Spécifiez les coordonnées des sommets du triangle
 	triangle_vertices = np.array(point)
 	# Tracez le triangle
@@ -54,16 +53,6 @@ if (own_input):
 	y = float(input(f"Point à évaluer, y -> "));
 	exec_coordonnees(point, x, y)
 else:
-	point = [
-		[[[0, 0], [1, 0], [0.5, 1]], 0.5, 0.5],
-		[[[0, 0], [1, 0], [0.5, 1]], 0.2, 0.2],
-		[[[0, 0], [1, 0], [0.5, 1]], 0, 0],
-		[[[-1, -1], [1, -1], [0, 1]], 0, 0],
-		[[[2, 3], [6, 1], [4, 5]], 5, 4],
-		[[[0, 0], [2, 0], [1, 3]], 1, 2],
-		[[[0, 0], [1, 0], [0.5, 1]], 0.8, 0.8],
-		[[[0, 0], [1, 0], [0.5, 1]], 0.5, 0],
-	]
 	for i in range(len(point)):
 		exec_coordonnees(point[i][0], point[i][1], point[i][2])
 
